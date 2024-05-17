@@ -1,33 +1,30 @@
 'use strict';
 
-describe('restoreNames', () => {
+describe(`restoreNames`, () => {
   const { restoreNames } = require('./restoreNames');
   const users = [
     {
       firstName: undefined,
-      lastName: 'Holy',
-      fullName: 'Jack Holy',
+      lastName: `Holy`,
+      fullName: `Jack Holy`,
     },
     {
-      lastName: 'Adams',
-      fullName: 'Mike Adams',
+      lastName: `Adams`,
+      fullName: `Mike Adams`,
     },
   ];
 
   restoreNames(users);
 
-  it('should be declared', () => {
-    expect(restoreNames)
-      .toBeInstanceOf(Function);
+  it(`should be declared`, () => {
+    expect(restoreNames).toBeInstanceOf(Function);
   });
 
   it(`shouldn't return anything`, () => {
-    const result = restoreNames(users);
-
-    expect(result).toBe(void 0);
+    expect(restoreNames(users)).toBe(void 0);
   });
 
-  it('should do nothing with empty array', () => {
+  it(`shouldn't do any effect for empty array`, () => {
     const emptyArray = [];
 
     restoreNames(emptyArray);
@@ -36,11 +33,11 @@ describe('restoreNames', () => {
   });
 
   it(`should update firstName if it equal to 'undefined'`, () => {
-    expect(users[0].firstName).toBe('Jack');
+    expect(users[0].firstName).toBe(`Jack`);
   });
 
-  it(`should set firstName if it doesn\t exists`, () => {
-    expect(users[1].firstName).toBe('Mike');
+  it(`should set firstName if it doesn't exists`, () => {
+    expect(users[1].firstName).toBe(`Mike`);
   });
 
   it(`shouldn't changed values if it already exists`, () => {
